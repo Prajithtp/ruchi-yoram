@@ -1,1 +1,179 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fff8ee;
+  --color-terracotta: #a84932;
+  --color-mustard: #edbd52;
+  --color-chili: #8f2118;
+  --color-ink: #35231e;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+button:not(:disabled),
+summary {
+  cursor: pointer;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+summary {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-terracotta);
+  outline-offset: 4px;
+}
+
+html:has(dialog[open]),
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.page-width {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+}
+
+.display-font {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.eyebrow {
+  color: var(--color-terracotta);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  transition: background-color 160ms, transform 160ms;
+}
+
+.primary-button {
+  background: var(--color-chili);
+  color: white;
+}
+
+.secondary-button {
+  border: 1px solid #a8493240;
+  background: white;
+  color: var(--color-chili);
+}
+
+.hero-surface {
+  background:
+    radial-gradient(ellipse at 90% 20%, #edbd522e, transparent 55%),
+    var(--color-cream);
+}
+
+.logo-panel {
+  background: white;
+  border: 1px solid #a8493220;
+  box-shadow: 0 24px 60px #63241612;
+}
+
+app-product-card {
+  display: block;
+  min-width: 0;
+  height: 100%;
+}
+
+app-product-card article {
+  border-radius: 1.5rem;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.floating-basket {
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border-radius: 0.75rem;
+  background: white;
+  padding: 0.75rem 1rem;
+  color: var(--color-chili);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (min-width: 640px) {
+  .page-width {
+    width: min(100% - 3rem, 1200px);
+  }
+}
+
+@media (hover: hover) {
+  .primary-button:hover {
+    background: var(--color-terracotta);
+    transform: translateY(-2px);
+  }
+
+  .secondary-button:hover {
+    background: var(--color-cream);
+  }
+
+  app-product-card article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px #63241612;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .primary-button,
+  .secondary-button,
+  app-product-card article {
+    transition: none;
+    transform: none;
+  }
+}

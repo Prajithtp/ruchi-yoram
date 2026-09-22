@@ -1,0 +1,125 @@
+<article
+  class="flex h-full flex-col overflow-hidden rounded-3xl
+         border border-terracotta/15 bg-white shadow-sm"
+>
+  
+<div class="aspect-square overflow-hidden bg-mustard/15">
+  <img
+    [src]="product().image"
+    [alt]="product().name + ' — Ruchi Yoram homemade Kerala pickle'"
+    width="640"
+    height="640"
+    loading="lazy"
+    decoding="async"
+    class="h-full w-full object-cover"
+  />
+</div>
+
+  <div class="flex flex-1 flex-col p-5 sm:p-6">
+    <p class="text-xs font-semibold uppercase tracking-wide text-terracotta">
+      {{ product().vegetarian ? 'Vegetarian' : 'Non-vegetarian' }}
+    </p>
+
+    <h3 class="mt-2 text-xl font-bold">
+      {{ product().name }}
+    </h3>
+
+    <p class="mt-3 flex-1 text-sm leading-6 text-ink/75">
+      {{ product().description }}
+    </p>
+    <details class="mt-4 rounded-xl border border-terracotta/15 bg-cream">
+  <summary
+    class="cursor-pointer rounded-xl px-4 py-3
+           text-sm font-semibold text-terracotta"
+  >
+    Ingredients &amp; storage
+  </summary>
+
+  <dl class="space-y-3 px-4 pb-4 text-sm leading-6">
+    <div>
+      <dt class="font-semibold">Ingredients</dt>
+      <dd class="text-ink/75">
+        {{ product().ingredients || 'Ask us on WhatsApp for the ingredient list.' }}
+      </dd>
+    </div>
+
+    <div>
+      <dt class="font-semibold">Allergen information</dt>
+      <dd class="text-ink/75">
+        {{ product().allergenInfo || 'Please confirm allergen information with us before ordering.' }}
+      </dd>
+    </div>
+
+    <div>
+      <dt class="font-semibold">Storage</dt>
+      <dd class="text-ink/75">
+        {{ product().storageInstructions || 'Ask us for storage instructions for this pickle.' }}
+      </dd>
+    </div>
+
+    <div>
+      <dt class="font-semibold">Shelf life</dt>
+      <dd class="text-ink/75">
+        {{ product().shelfLife || 'Please confirm the shelf life of the available batch.' }}
+      </dd>
+    </div>
+  </dl>
+</details>
+
+    <fieldset class="mt-6">
+      <legend class="mb-3 text-sm font-semibold">
+        Choose your size
+      </legend>
+
+      <div class="flex flex-wrap gap-2">
+        @for (variant of product().variants; track variant.weight) {
+          <button
+            type="button"
+            (click)="selectWeight(variant.weight)"
+            [attr.aria-pressed]="selectedVariant().weight === variant.weight"
+            [class.bg-chili]="selectedVariant().weight === variant.weight"
+            [class.text-white]="selectedVariant().weight === variant.weight"
+            class="min-h-11 min-w-16 rounded-xl border
+                   border-terracotta/25 px-4 py-2 text-sm
+                   font-semibold transition-colors"
+          >
+            {{ variant.weight === 1000 ? '1kg' : variant.weight + 'g' }}
+          </button>
+        }
+      </div>
+    </fieldset>
+
+    <p
+      aria-live="polite"
+      aria-atomic="true"
+      class="mt-5 text-2xl font-black text-chili"
+    >
+      {{ selectedVariant().pricePaise / 100
+          | currency:'INR':'symbol':'1.0-2' }}
+    </p>
+    <button
+  type="button"
+  (click)="addToCart()"
+  class="mt-5 min-h-12 w-full rounded-xl bg-chili
+         px-5 py-3 font-bold text-white
+         transition-colors hover:bg-terracotta"
+>
+  Add to cart
+</button>
+<button
+  type="button"
+  (click)="buyViaWhatsApp()"
+  class="mt-2 min-h-12 w-full rounded-xl border
+         border-terracotta/30 px-5 py-3 font-semibold
+         text-terracotta hover:bg-cream"
+>
+  Buy via WhatsApp
+</button>
+<p
+  role="status"
+  class="mt-2 min-h-10 text-sm text-terracotta"
+>
+  {{ feedback() }}
+</p>
+  </div>
+</article>  
