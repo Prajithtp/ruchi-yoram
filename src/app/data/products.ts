@@ -11,7 +11,7 @@ export const PRODUCTS: readonly Product[] = [
     variants: [
       { weight: 200, pricePaise: 10000 },
       { weight: 400, pricePaise: 19000 },
-      { weight: 1000, pricePaise: 36000 },
+      { weight: 1000, pricePaise: 46000 },
     ],
     ingredients: 'Raw Mango, Mustard, Mustard Oil, Coriander Powder, Cumin, Fenugreek, Fennel Seeds, Red Chilli Powder, Turmeric, Black Mustard, Asafoetida, Salt',
     allergenInfo: 'Mustard.',
@@ -27,7 +27,7 @@ export const PRODUCTS: readonly Product[] = [
     variants: [
       { weight: 200, pricePaise: 12000 },
       { weight: 400, pricePaise: 23000 },
-      { weight: 1000, pricePaise: 45000 },
+      { weight: 1000, pricePaise: 55000 },
     ],
         ingredients: 'Cut Lemon (89%), Water (6%) SFG Fenugreek Powder (2%), Jodized Salt (1%), Black Salt (19), Yellow Mustard Split SFG Red Chill Powder, Awain Seed, Peperica Oleorisin, SFG Corlander Crush, SFG Cinnamon Powder, Mint Powder CONTAINS PERMITTED CLASS II PRESERVATIVE (E211) ALLERGY ADVICE: Contain Mustard & the Product May Contain Milk & ink Products. Packed in A Facility That Processes Dairy, Wheat Flour, Tree Nuts, Sesame Seeds & Mustard',
     allergenInfo: 'Mustard.',
@@ -43,7 +43,7 @@ export const PRODUCTS: readonly Product[] = [
     variants: [
       { weight: 200, pricePaise: 9000 },
       { weight: 400, pricePaise: 17000 },
-      { weight: 1000, pricePaise: 30000 },
+      { weight: 1000, pricePaise: 40000 },
     ],
     ingredients: 'Tender mango, Salt, Chilli powder, Mustard, Fenugreek, Asafoetida, Synthetic vinegar. Contains permitted Class Il preservative-Sodium Benzoate',
     allergenInfo: ' Contain Mustard.',
@@ -59,7 +59,7 @@ export const PRODUCTS: readonly Product[] = [
     variants: [
       { weight: 200, pricePaise: 10000 },
       { weight: 400, pricePaise: 18000 },
-      { weight: 1000, pricePaise: 34000 },
+      { weight: 1000, pricePaise: 45000 },
     ],
     ingredients: 'Garlic (32%, Refined Rice Bran Oil, lodized Salt, Chilli Powder, Mustard Powder, Mixed Spices, Acidity Regulators - Acetic Acid & Citric Acid, Mustard Seeds, Dry Chilies and Curry Leaves.',
     allergenInfo: 'Allergen-Free',
@@ -73,8 +73,8 @@ export const PRODUCTS: readonly Product[] = [
     image: '/images/kedar.jpg',
     vegetarian: false,
     variants: [
-      { weight: 200, pricePaise: 19000 },
-      { weight: 400, pricePaise: 36000 },
+      { weight: 200, pricePaise: 15000 },
+      { weight: 400, pricePaise: 28000 },
       { weight: 1000, pricePaise: 70000 },
     ],
     ingredients: 'Tuna Fish, Water, Chilli powder, Garlic, Ginger, Salt, Rice bran oil, Gingelly oil (Sesame oil), Green chilli, Sugar, Acidity regulator (E 260), Curry leaves, Mustard seeds, Fenugreek, Asafoetida, Pepper, Turmeric. Contains Permitted Class II Preservative Sodium Benzoate (E 211).',
@@ -90,8 +90,11 @@ export const PRODUCTS: readonly Product[] = [
     vegetarian: false,
     variants: [
       { weight: 200, pricePaise: 25000 },
-      { weight: 400, pricePaise: 47000 },
+      { weight: 400, pricePaise: 48000 },
     ],
+    allergenInfo: 'Allergen-Free',
+    storageInstructions: 'Store in a cool dry place. Keep away from water.',
+    shelfLife: 'BEST BEFORE 12 MONTHS FROM MANUFACTURING',
   },
   {
     id: 'chicken',
@@ -101,8 +104,10 @@ export const PRODUCTS: readonly Product[] = [
     vegetarian: false,
     variants: [
       { weight: 200, pricePaise: 18000 },
-      { weight: 400, pricePaise: 33000 },
+      { weight: 400, pricePaise: 34000 },
     ],
+    storageInstructions: 'Store in a cool dry place. Keep away from water.',
+    shelfLife: 'BEST BEFORE 12 MONTHS FROM MANUFACTURING',
   },
     {
     id: 'tuna',
@@ -114,6 +119,8 @@ export const PRODUCTS: readonly Product[] = [
       { weight: 200, pricePaise: 15000 },
       { weight: 400, pricePaise: 28000 },
     ],
+    storageInstructions: 'Store in a cool dry place. Keep away from water.',
+    shelfLife: 'BEST BEFORE 12 MONTHS FROM MANUFACTURING',
   },
   {
     id: 'prawns',
@@ -122,9 +129,11 @@ export const PRODUCTS: readonly Product[] = [
     description: 'A savoury prawn pickle to pair with your favourite meals.',
     vegetarian: false,
     variants: [
-      { weight: 200, pricePaise: 16000 },
-      { weight: 400, pricePaise: 30000 },
+      { weight: 200, pricePaise: 20000 },
+      { weight: 400, pricePaise: 38000 },
     ],
+    storageInstructions: 'Store in a cool dry place. Keep away from water.',
+    shelfLife: 'BEST BEFORE 12 MONTHS FROM MANUFACTURING',
   },
     {
     id: 'sardine',
@@ -134,8 +143,10 @@ export const PRODUCTS: readonly Product[] = [
     vegetarian: false,
     variants: [
       { weight: 200, pricePaise: 10000 },
-      { weight: 400, pricePaise: 18000 },
+      { weight: 400, pricePaise: 19000 },
     ],
+    storageInstructions: 'Store in a cool dry place. Keep away from water.',
+    shelfLife: 'BEST BEFORE 12 MONTHS FROM MANUFACTURING',
   },
     {
     id: 'sardine-chicken-combo',
@@ -144,8 +155,49 @@ export const PRODUCTS: readonly Product[] = [
     description: 'One 200g jar of Sardine Pickle and one 200g jar of Chicken Pickle.',
     vegetarian: false,
     isCombo: true,
+    regularPricePaise: 28000,
     variants: [
       { weight: 400, pricePaise: 25000 },
     ],
+    storageInstructions: 'Store in a cool dry place. Keep away from water.',
+    shelfLife: 'BEST BEFORE 12 MONTHS FROM MANUFACTURING',
   },
+
+  {
+    id: 'prawns-chicken-beef-combo',
+    name: 'Combo — Prawns 200g + Chicken 200g + Beef 200g',
+    image: '/images/offer-prawns-chicken-beef.png',
+    description: 'Three jars: Prawns, Chicken and Beef Pickle. 200g each.',
+    vegetarian: false,
+    isCombo: true,
+    regularPricePaise: 60000,
+    variants: [
+      { weight: 600, pricePaise: 50000 },
+    ],
+  },
+  {
+    id: 'kedar-chicken-beef-combo',
+    name: 'Combo — Kedar 200g + Chicken 200g + Beef 200g',
+    image: '/images/offer-kedar-chicken-beef.png',
+    description: 'Three jars: Kedar, Chicken and Beef Pickle. 200g each.',
+    vegetarian: false,
+    isCombo: true,
+    regularPricePaise: 58000,
+    variants: [
+      { weight: 600, pricePaise: 50000 },
+    ],
+  },
+  {
+    id: 'garlic-dates-combo',
+    name: 'Combo — Garlic 200g + Dates 200g',
+    image: '/images/offer-garlic-dates.png',
+    description: 'Two jars: Garlic and Dates Pickle. 200g each.',
+    vegetarian: true,
+    isCombo: true,
+    regularPricePaise: 21000,
+    variants: [
+      { weight: 400, pricePaise: 17900 },
+    ],
+  },
+
 ];

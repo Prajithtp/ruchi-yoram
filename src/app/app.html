@@ -128,144 +128,117 @@
       </div>
     </div>
   </section>
-@if (combo; as offer) {
-  <section
-    aria-labelledby="combo-title"
-    class="page-width pt-12 sm:pt-16"
+<section
+  aria-labelledby="offers-title"
+  class="page-width pt-12 sm:pt-16"
+>
+  <p class="eyebrow">More flavours to share</p>
+
+  <h2
+    id="offers-title"
+    class="display-font mt-3 text-4xl sm:text-5xl"
   >
-    <div
-      class="overflow-hidden rounded-[2rem]
-             border border-terracotta/20 bg-white"
-    >
-      <div class="grid md:grid-cols-2">
-        <!-- Product photos -->
-        <!-- <div class="bg-mustard/15 p-5 sm:p-8">
-          <span
-            class="inline-flex rounded-full bg-chili
-                   px-4 py-2 text-xs font-bold
-                   uppercase tracking-widest text-white"
-          >
-            Buy 2 Combo
-          </span>
+    Combo offers
+  </h2>
 
-          <div
-            class="mt-6 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]
-                   items-center gap-2 sm:gap-4"
-          >
-            <figure class="min-w-0">
-              <img
-                src="/images/Sardine.jpg"
-                alt="Sardine Pickle"
-                width="320"
-                height="320"
-                loading="lazy"
-                class="aspect-square w-full rounded-2xl object-cover"
-              />
+  <p class="mt-4 text-sm leading-7 text-ink/70">
+    Your favourites, together for less. Every jar contains 200g.
+  </p>
 
-              <figcaption class="mt-3 text-center text-sm font-bold">
-                Sardine
-                <span class="block text-xs font-normal text-ink/70">
-                  200g jar
-                </span>
-              </figcaption>
-            </figure>
-
-            <span
-              aria-hidden="true"
-              class="pb-10 text-3xl font-black text-chili sm:text-4xl"
-            >
-              +
-            </span>
-
-            <figure class="min-w-0">
-              <img
-                src="/images/Chicken.jpg"
-                alt="Chicken Pickle"
-                width="320"
-                height="320"
-                loading="lazy"
-                class="aspect-square w-full rounded-2xl object-cover"
-              />
-
-              <figcaption class="mt-3 text-center text-sm font-bold">
-                Chicken
-                <span class="block text-xs font-normal text-ink/70">
-                  200g jar
-                </span>
-              </figcaption>
-            </figure>
-          </div>
-        </div> -->
-<!-- Combo offer image -->
-<div class="flex items-center justify-center bg-mustard/10 p-4 sm:p-6">
-  <img
-    [src]="offer.image"
-    alt="Sardine and Chicken pickle combo: two 200g jars for ₹250, reduced from ₹280. Save ₹30."
-    width="1122"
-    height="1402"
-    loading="lazy"
-    decoding="async"
-    class="block h-auto w-full max-w-sm rounded-2xl"
-  />
-</div>
-        <!-- Offer details -->
-        <div class="flex flex-col justify-center p-6 sm:p-8">
-          <p class="eyebrow">Two favourites. One tasty deal.</p>
-
-          <h2
-            id="combo-title"
-            class="display-font mt-3 text-3xl leading-tight sm:text-4xl"
-          >
-            Sardine + Chicken
-          </h2>
-
-          <p class="mt-4 text-sm leading-7 text-ink/75">
-            Bring home one 200g jar of Sardine Pickle and one
-            200g jar of Chicken Pickle in this flavour-packed pair.
-          </p>
-
-          <p class="mt-3 text-xs font-semibold text-terracotta">
-            Non-vegetarian · 2 × 200g jars · 400g total
-          </p>
-
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <span class="text-lg text-ink/55">
-              <span class="sr-only">Regular combined price:</span>
-              <s>₹280</s>
-            </span>
-
-            <strong class="text-4xl text-chili">
-              <span class="sr-only">Combo price:</span>
-              {{ offer.variants[0].pricePaise / 100
-                  | currency:'INR':'symbol':'1.0-2' }}
-            </strong>
-
-            <span
-              class="rounded-full bg-mustard/30
-                     px-3 py-2 text-xs font-bold text-ink"
-            >
-              Save ₹30
-            </span>
+  <div class="mt-8 grid gap-6 md:grid-cols-2">
+    @for (offer of offers; track offer.id) {
+      @if (offer.variants[0]; as variant) {
+        <article
+          class="flex h-full flex-col overflow-hidden rounded-3xl
+                 border border-terracotta/15 bg-white shadow-sm"
+        >
+          <div class="bg-mustard/10 p-4">
+            <img
+              [src]="offer.image"
+              [alt]="offer.name"
+              width="640"
+              height="640"
+              loading="lazy"
+              class="aspect-square w-full rounded-2xl object-contain"
+            />
           </div>
 
-          <button
-            type="button"
-            (click)="addCombo()"
-            class="mt-6 flex min-h-12 w-full items-center
-                   justify-center rounded-xl bg-chili px-5 py-3
-                   font-bold text-white hover:bg-terracotta"
-          >
-            Add combo to basket →
-          </button>
+          <div class="flex flex-1 flex-col p-5 sm:p-6">
+            <div class="flex flex-wrap gap-2 text-xs font-semibold">
+              <span class="rounded-full bg-mustard/25 px-3 py-2">
+                Ongoing offer
+              </span>
 
-          <p class="mt-3 text-xs leading-6 text-ink/65">
-            Delivery charges confirmed on WhatsApp.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-}
+              <span class="rounded-full bg-cream px-3 py-2 text-terracotta">
+                {{ offer.vegetarian ? 'Vegetarian' : 'Non-vegetarian' }}
+              </span>
+            </div>
+
+            <h3 class="mt-4 text-xl font-bold leading-7">
+              {{ offer.name }}
+            </h3>
+
+            <p class="mt-3 flex-1 text-sm leading-7 text-ink/70">
+              {{ offer.description }}
+            </p>
+
+            <p class="mt-3 text-xs font-semibold text-terracotta">
+              {{ variant.weight }}g total per combo
+            </p>
+
+            <div class="mt-5 flex flex-wrap items-center gap-3">
+              @if (
+                offer.regularPricePaise &&
+                offer.regularPricePaise > variant.pricePaise
+              ) {
+                <span class="text-ink/55">
+                  <span class="sr-only">Regular price:</span>
+                  <s>
+                    {{ offer.regularPricePaise / 100
+                        | currency:'INR':'symbol':'1.0-2' }}
+                  </s>
+                </span>
+              }
+
+              <strong class="text-3xl text-chili">
+                <span class="sr-only">Offer price:</span>
+                {{ variant.pricePaise / 100
+                    | currency:'INR':'symbol':'1.0-2' }}
+              </strong>
+
+              @if (
+                offer.regularPricePaise &&
+                offer.regularPricePaise > variant.pricePaise
+              ) {
+                <span
+                  class="rounded-full bg-mustard/25
+                         px-3 py-2 text-xs font-bold"
+                >
+                  Save
+                  {{ (offer.regularPricePaise - variant.pricePaise) / 100
+                      | currency:'INR':'symbol':'1.0-2' }}
+                </span>
+              }
+            </div>
+
+            <button
+              type="button"
+              (click)="addCombo(offer.id)"
+              class="mt-5 min-h-12 w-full rounded-xl bg-chili
+                     px-4 py-3 font-bold text-white hover:bg-terracotta"
+            >
+              Add combo to basket →
+            </button>
+
+            <p class="mt-3 text-xs leading-6 text-ink/65">
+              Delivery charges confirmed on WhatsApp.
+            </p>
+          </div>
+        </article>
+      }
+    }
+  </div>
+</section>
   <section
     id="pickles"
     aria-labelledby="catalog-title"

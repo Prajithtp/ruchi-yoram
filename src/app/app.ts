@@ -22,13 +22,12 @@ type ProductFilter = 'all' | 'vegetarian' | 'non-vegetarian';
 })
 export class App {
   readonly cart = inject(CartService);
-  // Individual pickles shown in the regular catalog.
-readonly products = PRODUCTS.filter(product => !product.isCombo);
 
-// Offer shown in its own section.
-readonly combo = PRODUCTS.find(
-  product => product.id === 'sardine-chicken-combo',
-);
+  // Individual pickles appear in the regular catalog.
+  readonly products = PRODUCTS.filter(product => !product.isCombo);
+
+  // All combos appear in the offers section.
+  readonly offers = PRODUCTS.filter(product => product.isCombo);
 
   readonly activeFilter = signal<ProductFilter>('all');
 
@@ -56,14 +55,19 @@ readonly combo = PRODUCTS.find(
       return true;
     });
   });
-  addCombo(): void {
-  const offer = this.combo;
 
-  if (!offer) {
-    return;
+  addCombo(productId: string): void {
+    const offer = this.offers.find(
+      product => product.id === productId,
+    );
+
+    const variant = offer?.variants[0];
+
+    if (!offer || !variant) {
+      return;
+    }
+
+    this.cart.add(offer, variant.weight);
+    this.cart.open();
   }
-
-  this.cart.add(offer, 400);
-  this.cart.open();
-}
 }

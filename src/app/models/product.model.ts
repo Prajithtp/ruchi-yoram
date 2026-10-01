@@ -1,4 +1,4 @@
-export type ProductWeight = 200 | 400 | 1000;
+export type ProductWeight = 200 | 400 | 600 | 1000;
 
 export interface ProductVariant {
   readonly weight: ProductWeight;
@@ -15,6 +15,7 @@ export interface Product {
   readonly isCombo?: boolean;
   readonly ingredients?: string;
   readonly allergenInfo?: string;
+  readonly regularPricePaise?: number;
   readonly storageInstructions?: string;
   readonly shelfLife?: string;
 }
